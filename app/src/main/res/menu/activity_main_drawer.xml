@@ -16,6 +16,10 @@
             android:id="@+id/nav_musicPlayerFragment"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Music" />
+        <item
+            android:id="@+id/nav_proximityFragment"
+            android:icon="@android:drawable/ic_input_add"
+            android:title="Proximity" />
 
     </group>
 </menu>
