@@ -7,19 +7,43 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@android:drawable/ic_dialog_alert"
-            android:title="Facts" />
+            android:title="факты" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@android:drawable/ic_menu_mapmode"
-            android:title="WebBrowse" />
+            android:title="браузер" />
         <item
             android:id="@+id/nav_musicPlayerFragment"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Music" />
+            android:title="музыкальный плеер" />
         <item
             android:id="@+id/nav_proximityFragment"
             android:icon="@android:drawable/ic_input_add"
-            android:title="Proximity" />
+            android:title="датчик" />
+        <item
+            android:id="@+id/nav_cameraFragment"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="камера" />
+        <item
+            android:id="@+id/nav_microFragment"
+            android:icon="@android:drawable/ic_btn_speak_now"
+            android:title="микрофон" />
+        <item
+            android:id="@+id/nav_profileFragment"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="профиль" />
+        <item
+            android:id="@+id/nav_filesFragment"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="файлы" />
+        <item
+            android:id="@+id/nav_weatherFragment"
+            android:icon="@android:drawable/ic_menu_mapmode"
+            android:title="погода" />
+        <item
+            android:id="@+id/nav_placesFragment"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="места" />
 
     </group>
 </menu>

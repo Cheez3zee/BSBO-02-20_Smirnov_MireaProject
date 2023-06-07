@@ -8,24 +8,54 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="ru.mirea.smirnov.mireaproject.ui.home.HomeFragment"
-        android:label="Facts"
+        android:label="факты"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="ru.mirea.smirnov.mireaproject.ui.gallery.GalleryFragment"
-        android:label="WebBrowse"
+        android:label="браузер"
         tools:layout="@layout/fragment_gallery" />
     <fragment
         android:id="@+id/nav_musicPlayerFragment"
         android:name="ru.mirea.smirnov.mireaproject.MusicPlayerFragment"
-        android:label="fragment_music_player"
+        android:label="музыкальный плеер"
         tools:layout="@layout/fragment_music_player" />
     <fragment
         android:id="@+id/nav_proximityFragment"
         android:name="ru.mirea.smirnov.mireaproject.ProximityFragment"
-        android:label="fragment_proximity"
+        android:label="датчик"
         tools:layout="@layout/fragment_proximity" />
+    <fragment
+        android:id="@+id/nav_cameraFragment"
+        android:name="ru.mirea.smirnov.mireaproject.CameraFragment"
+        android:label="камера"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/nav_microFragment"
+        android:name="ru.mirea.smirnov.mireaproject.MicroFragment"
+        android:label="микрофон"
+        tools:layout="@layout/fragment_micro" />
+    <fragment
+        android:id="@+id/nav_profileFragment"
+        android:name="ru.mirea.smirnov.mireaproject.ProfileFragment"
+        android:label="профиль"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_filesFragment"
+        android:name="ru.mirea.smirnov.mireaproject.FilesFragment"
+        android:label="файлы"
+        tools:layout="@layout/fragment_files" />
+    <fragment
+        android:id="@+id/nav_weatherFragment"
+        android:name="ru.mirea.smirnov.mireaproject.WeatherFragment"
+        android:label="погода"
+        tools:layout="@layout/fragment_weather" />
+    <fragment
+        android:id="@+id/nav_placesFragment"
+        android:name="ru.mirea.smirnov.mireaproject.PlacesFragment"
+        android:label="места"
+        tools:layout="@layout/fragment_places" />
 
 
 </navigation>

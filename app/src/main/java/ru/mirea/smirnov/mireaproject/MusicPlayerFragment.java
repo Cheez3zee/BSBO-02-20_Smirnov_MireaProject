@@ -38,10 +38,11 @@ public class MusicPlayerFragment extends Fragment {
                 {
                     Intent serviceIntent = new Intent(root.getContext(), NotMyServicePlayer.class);
                     ContextCompat.startForegroundService(root.getContext(), serviceIntent);
+                    binding.button2.setText("стоп");
                 }
                 else
                 {
-
+                    binding.button2.setText("плей");
                     root.getContext().stopService(new Intent(root.getContext(), NotMyServicePlayer.class));
 
                 }
