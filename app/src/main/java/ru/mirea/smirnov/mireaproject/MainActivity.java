@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -28,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean camera_permission = false;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mAuth = FirebaseAuth.getInstance();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -43,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 android.Manifest.permission.POST_NOTIFICATIONS,
                 android.Manifest.permission.ACCESS_COARSE_LOCATION,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
-
         };
 
         if (!hasPermissions(this, PERMISSIONS)) {
@@ -112,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signOut() {
-//        mAuth.signOut();
-//        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-//        startActivity(intent);
+        mAuth.signOut();
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        startActivity(intent);
     }
 }
