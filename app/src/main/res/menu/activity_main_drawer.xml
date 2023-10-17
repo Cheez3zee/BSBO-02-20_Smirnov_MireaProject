@@ -44,6 +44,9 @@
             android:id="@+id/nav_placesFragment"
             android:icon="@android:drawable/ic_dialog_map"
             android:title="места" />
+        <item
+            android:id="@+id/nav_appListFragment"
+            android:title="Список Приложений" />
 
     </group>
 </menu>

@@ -1,6 +1,8 @@
 package ru.mirea.smirnov.mireaproject;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -13,6 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +27,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.List;
 import java.util.Objects;
 
 import ru.mirea.smirnov.mireaproject.databinding.ActivityMain2Binding;
@@ -42,6 +46,8 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(binding.getRoot());
         mAuth = FirebaseAuth.getInstance();
 
+        String android_id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+        binding.textView2.setText(android_id);
         binding.button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,8 +67,27 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        if(!checkRemote())
+        {
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            updateUI(currentUser);
+        }
+    }
+
+    private boolean checkRemote() {
+
+        @SuppressLint("QueryPermissionsNeeded") List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
+
+        for(int i=0;i < packs.size();i++) {
+            PackageInfo p = packs.get(i);
+            if(Objects.equals(p.packageName, "com.anydesk.anydeskandroid"))
+            {
+                DialogRemoteFind fragment = new DialogRemoteFind();
+                fragment.show(getSupportFragmentManager(), "mirea");
+                return true;
+            }
+        }
+        return false;
     }
 
     // [END on_start_check_user]
@@ -133,5 +158,15 @@ public class MainActivity2 extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    public void onOkClicked() {
+        finish();
+        System.exit(0);
+    }
+
+    public void onContinueClicked() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
 }
